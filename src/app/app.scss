@@ -14,3 +14,49 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+
+// Lo stile scss che viene impostato in questa classe avrà ripercussioni sull'intera app.
+// Ogni singola pagina però può avere un suo stile che dovrà a quel punto essere definito nella classe nomepagina.scss
+
+
+.link:hover{
+  background-color: #d8dfe6 !important;
+}
+.item{
+  background-color: white !important;
+}
+
+
+.logo {
+
+  width:80px;
+  height:80px;
+  margin-right:20px;
+  background-color: white;
+  float: left;
+}
+
+h3 {
+  padding-bottom:0px;
+}
+.copyright p {
+  margin-right:20px;
+  font-size: 80%;
+  text-align: right;
+
+}
+.copyright {
+  background-color: color($colors, energy);
+}
+
+.larger-icon {
+  font-size: 50px;
+}
+
+
+
+
+#content {
+  width:4000px !important;
+}

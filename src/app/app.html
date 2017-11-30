@@ -1,1 +1,75 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<!-- Tutto ciò che viene inserito nel file app.html viene applicato anche a tutto il resto delle pagine della app -->
+
+<!-- Il contentuto del menu laterale è fissato una volte per tutte e tutte le pagine mostrano il medesimo contenuto -->
+
+
+<!-- wrappare il codice tra i tag ion-split-pane ci regala gratuitamente il responsive dell'intera app che *ngIf="loggedin()"
+visualizza il menu aperto quando la risoluzione lo consente e, viceversa, lo chiude quando siamo in presenza di un dispositivo mobile -->
+
+
+<ion-split-pane [when]="splitPaneProvider.getSplitPaneProvider()" >
+
+<ion-menu [content]="content"   class="outer-content"  >
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu<div *ngIf="loggedin()" style="float:right;font-size:80%;">utente: {{name}}</div></ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- l'elenco dei link del menu laterale viene generato dinamicamente scorrendo l'oggetto pages definito nella classe app.components.ts -->
+
+  <ion-content *ngIf="loggedin()">
+    <ion-list>
+      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        {{p.title}}
+      </button>
+      <button menuClose ion-item (click)="logout()">Logout</button>
+    </ion-list>
+
+
+
+
+
+
+  </ion-content>
+
+</ion-menu>
+
+  <!-- di seguito il tag che mostra il contenuto centrale principale della pagina, a destra del menu di navigazione
+  è importante sottolineare che è necessario apporre #content e soprattutto main se vogliamo che il contenuto si adatti
+  alla larghezza della risoluzione desktop, visto che abbiamo utilizzato il tag <ion-split-pane> -->
+
+<ion-nav [root]="rootPage" #content main></ion-nav>
+
+  <!-- esempio di utilizzo delle grid per la programmazione desktop
+
+  <ion-grid>
+    <ion-row>
+      <ion-col
+        col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3
+        *ngFor="let item of [1,2,3,4,5]">
+        <ion-card>Item </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+-->
+
+
+<!-- Questo footer verrà applicato a tutte le pagine della app -->
+
+<!--<ion-footer>
+  <ion-navbar>
+    <p><b>Estar Find ver 2.0</b> - (P) 2017 All rights reserved<br>Realizzato dalla UOC Sviluppo Software e Servizi per Estar</p>
+  </ion-navbar>
+
+
+</ion-footer>-->
+  <ion-footer class="copyright">
+    <p><b> {{appname}} ver. {{appversion}}</b> - (P) 2017 All rights reserved<br>Realizzato dalla UOC Sviluppo Software e Servizi per Estar</p>
+  </ion-footer>
+
+</ion-split-pane>
+
+

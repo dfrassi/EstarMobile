@@ -1,14 +1,42 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+<ion-header> <!-- inizio della barra grigia dell'header -->
+
+  <ion-navbar> <!-- allinterno della quale è posta una barra di navigazione -->
+
+    <button ion-button menuToggle> <!-- che mostra il bottone di menu laterale -->
+
+      <ion-icon name="menu"></ion-icon>
+
+    </button>
+
+    <ion-title>Home</ion-title> <!-- ed il titolo della pagina subito accanto -->
+
   </ion-navbar>
+
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+
+  <ion-img src="assets/icon/logo.png" class='logo'></ion-img><h3>Estar Mobile {{appversion}}</h3>
+
+  <div>
+    <p>Questa app è stata sviluppata per offrire una serie di servizi di utlità per il dipendente Estar.<br/>
+      <br>Il primo servizio che viene incluso nella distribuzione è Estar Find stessso, il servizio di rubrica teleconica.
+      Dopo aver digitato <b>almeno 3 caratteri</b> nel campo di ricerca, la funzione di autocompletamento mostrerà i possibili risultati. Le chiavi di ricerca verranno confrontate con il Nome, Cognome, Unità Operativa, Sede e Numero di Telefono.
+      Sarà possibile far partire la telefonata, navigando da un cellulare, cliccando sul numero di telefono<br/></p>
+  </div>
+
+
+  <button ion-button [navPush]="rubricaPage">Rubrica Telefonica</button>
+  <button ion-button (click)="openAbout()">About</button>
+
+
+
 </ion-content>
+
+
+
+
+
+
+
+
