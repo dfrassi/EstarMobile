@@ -60,6 +60,7 @@ export class EstarMobile {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      localStorage.clear();
 
     });
   }
@@ -81,7 +82,11 @@ export class EstarMobile {
 
   public loggedin(){
 
-    if (localStorage.getItem('userData')) return true;
+    if (localStorage.getItem('userData')){
+      var userData = localStorage.getItem('userData');
+      this.name = JSON.parse(userData).userData.name;
+      return true;
+    }
     else return false;
   }
 

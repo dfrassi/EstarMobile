@@ -69,8 +69,4 @@ import {MyLoader} from "../providers/myloader";
   ]
 })
 
-export class AppModule {
-  constructor() {
-    console.log('export class AppModule');
-  }
-}
+export class AppModule {}
