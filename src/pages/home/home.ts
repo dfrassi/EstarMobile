@@ -3,6 +3,7 @@ import { NavController, App } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {RubricaPage} from "../rubrica/rubrica";
 import {AboutPage} from "../about/about";
+import {GlobalVariables} from "../../providers/global-variables";
 
 
 @Component({
@@ -13,11 +14,15 @@ import {AboutPage} from "../about/about";
 export class HomePage {
 
   rubricaPage: any;
-
+  appname: string;
+  appversion: string;
 
   constructor(public navCtrl: NavController,private splashScreen: SplashScreen, public app: App) {
 
     this.rubricaPage = RubricaPage;
+
+    this.appname = GlobalVariables.myvars.appname;
+    this.appversion = GlobalVariables.myvars.appversion;
 
     this.splashScreen.show();
     this.splashScreen.hide();

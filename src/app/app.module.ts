@@ -26,7 +26,7 @@ import { SplitPaneProvider } from '../providers/split-pane';
 import { AuthService } from '../providers/auth-service';
 import { IonicStorageModule } from '@ionic/storage';
 import { Network } from '@ionic-native/network';
-
+import {MyLoader} from "../providers/myloader";
 
 
 @NgModule({
@@ -62,6 +62,7 @@ import { Network } from '@ionic-native/network';
     CallNumber,
     AuthService,
     Network,
+    MyLoader,
     GlobalVariables,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     SplitPaneProvider
@@ -69,5 +70,7 @@ import { Network } from '@ionic-native/network';
 })
 
 export class AppModule {
-
+  constructor() {
+    console.log('export class AppModule');
+  }
 }

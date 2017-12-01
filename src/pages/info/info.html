@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Scheda dipendente</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<p>{{userName}}</p>
+<ion-content class="home" padding>
+	<div *ngIf="dipendente" class="selection">
+
+     <ion-item  text-wrap>
+        <ion-icon name="contact" item-left></ion-icon>
+        <h2>Nome</h2>
+        <h1 style="color:#30a3ff;">{{dipendente.nome}} {{dipendente.cognome}}</h1>
+     </ion-item>
+      <ion-item  text-wrap>
+        <ion-icon name="bookmark" item-left></ion-icon>
+        <h2>Mansione</h2>
+        <p>{{dipendente.demans}}</p>
+      </ion-item>
+      <ion-item text-wrap>
+        <ion-icon name="bookmark" item-left></ion-icon>
+        <h2>Struttura</h2>
+        <p  tooltip="pippo">{{dipendente.descdc}}</p>
+      </ion-item>
+      <ion-item (click)="launchDirections(dipendente.sede_lavoro)" text-wrap class="link">
+        <ion-icon name="compass" item-left></ion-icon>
+        <h2>Sede</h2>
+        <p >{{dipendente.sede_lavoro}}</p>
+      </ion-item>
+			<ion-item  text-wrap (click)="launchMailTo(dipendente.email_ufficio)" class="link" [ngClass]="{'busy': isBusy}">
+   		<ion-icon name="mail" item-left></ion-icon>
+				<h2>Email Ufficio</h2>
+				<p class="item-description">{{dipendente.email_ufficio}}</p>
+			</ion-item>
+			<ion-item (click)="xcallNumber(dipendente.tel_interno)" class="link"  [ngClass]="{'busy': isBusy}">
+				<ion-icon name="call" item-left></ion-icon>
+				<h2>Telefono</h2>
+				<p>{{dipendente.tel_interno}}</p>
+			</ion-item>
+    <!-- il contentuto che viene inserito nell'input text viene tenuto sincronizzato al valore presente nel componente per la stessa variabile -->
+     <!-- <ion-item>
+        <ion-icon name="call" item-left></ion-icon>
+        <h2>Prova input con binding bidirezionale</h2>
+        <p>{{userName}}</p>
+        <p><input [(ngModel)] = "userName"></p>
+      </ion-item>-->
+
+	</div>
+</ion-content>

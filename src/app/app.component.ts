@@ -32,10 +32,11 @@ export class EstarMobile {
 
   userData: {"username", "password", "esito"};
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public splitPaneProvider: SplitPaneProvider) {
+  constructor( public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public splitPaneProvider: SplitPaneProvider) {
+    console.log('export class EstarMobile');
 
-    this.appname = GlobalVariables.appname;
-    this.appversion = GlobalVariables.appversion;
+    this.appname = GlobalVariables.myvars.appname;
+    this.appversion = GlobalVariables.myvars.appversion;
 
     var userData = localStorage.getItem('userData');
     if (userData !=null) this.name = JSON.parse(userData).userData.name;

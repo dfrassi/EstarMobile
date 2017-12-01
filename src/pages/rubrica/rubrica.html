@@ -1,0 +1,54 @@
+<!--- header -->
+
+<ion-header>
+  <ion-navbar>
+
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Rubrica Telefonica (Estar Find)</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<!-- fine header -->
+
+<!-- contenuto centrale -->
+
+<ion-content padding margin-top="50">
+
+ <div> <p>Dopo aver digitato <b>almeno 3 caratteri</b> nel campo di ricerca, la funzione di autocompletamento mostrerà i possibili risultati. Le chiavi di ricerca verranno confrontate con il Nome, Cognome, Unità Operativa, Sede e Numero di Telefono.
+    Sarà possibile far partire la telefonata, navigando da un cellulare, cliccando sul numero di telefono<br/></p></div>
+  <ion-searchbar (ionInput)="searchForDipendente($event)" placeholder="Ricerca dipendente" [showCancelButton]="false"></ion-searchbar>
+  <ion-list>
+    <ion-item *ngFor="let dipendente of dipendentes" (click)="selectDipendente($event, dipendente)" class="link" >
+      <ion-avatar item-left>
+        <ion-icon name="contact" item-left class="larger-icon"></ion-icon>
+      </ion-avatar>
+      <h2>{{dipendente.cognome}} {{dipendente.nome}}</h2>
+      <p class="item-description">{{dipendente.descdc}}</p>
+
+    </ion-item>
+
+  </ion-list>
+
+
+  <!--<div *ngIf="!dipendentes"></div>--> <!-- esempio di utilizzo della direttiva strutturale *ngIf -->
+
+  <!-- di seguito testiamo il funzionamento della direttiva strutturale ngSwitch con le seguenti *ngSwitchCase -->
+<!--
+  <div [ngSwitch]="provaSwitchCase">
+    <div *ngSwitchCase="'pippo'">
+      <button>Gestione utenti</button>
+      <button>Gestione documenti</button>
+    </div>
+    <div *ngSwitchCase="'pluto'">
+      <button>Gestione documenti</button>
+      <button>Visualizza pratiche</button>
+    </div>
+  </div>
+-->
+
+
+</ion-content>
+
+<!-- fine contenuto centrale -->
