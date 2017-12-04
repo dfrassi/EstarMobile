@@ -20,7 +20,6 @@ npm-debug.log*
 coverage/
 dist/
 node_modules/
-src/providers/global-variables.ts
 tmp/
 temp/
 hooks/
@@ -34,3 +33,5 @@ $RECYCLE.BIN/
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate
+
+src/providers/global-variables.ts
