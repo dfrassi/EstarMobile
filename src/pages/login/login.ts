@@ -101,7 +101,7 @@ export class LoginPage {
         console.log(this.responseData);
         if(this.responseData.userData && this.responseData.userData.esito=="1"){
           localStorage.setItem('userData', JSON.stringify(this.responseData) )
-          this.navCtrl.push(HomePage);
+          this.navCtrl.setRoot(HomePage);
         }
         else{
           this.presentToast("Please give valid username and password");
